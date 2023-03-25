@@ -49,10 +49,21 @@ int main() {
 }
 
 unsigned int roll_dice() {
-    int die_1{1 + (rand() % 6)};
-    int die_2{1 + (rand() % 6)};
-    int sum{die_1 + die_2};
+    unsigned int dice_1{rand()%6};
+    unsigned int dice_2{rand()%6};
     
-    std::cout << "Player rolled " << die_1 << " + " << die_2 << " = " << sum << std::endl;
-    return sum;
+//     When the remainder is 0 add 1 to the dice
+    if (0 == dice_1) {
+//         std::cout << "dice_1 is 0" << std::endl;
+        dice_1 = 1;
+    }
+
+    if (0 == dice_2) {
+//         std::cout << "dice_2 is 0" << std::endl;
+        dice_2 = 1;
+    }
+
+    unsigned int dice_sum{dice_1 + dice_2};
+    std::cout << "Point is: " << dice_1 << " + " << dice_2 << " = " << dice_sum << std::endl;
+    return dice_sum;
 }
